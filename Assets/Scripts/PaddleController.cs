@@ -2,7 +2,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class Paddle : NetworkBehaviour
+public class PaddleController : NetworkBehaviour
 {
     public float speed = 5f; // Raketin hareket hýzý
     public float minY = -3.5f; // Raketin minimum y konumu

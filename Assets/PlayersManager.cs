@@ -12,7 +12,10 @@ public class PlayersManager : NetworkSingleton<PlayersManager>
     {
         get { return playersCount.Value; }
     }
-
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+    }
     private void Start()
     {
 
@@ -28,9 +31,9 @@ public class PlayersManager : NetworkSingleton<PlayersManager>
 
             if (playersCount.Value == 2)
             {
-                Debug.Log("started");
                 OnPlayerCountTwo.Invoke();
             }
+
         };
         NetworkManager.Singleton.OnClientDisconnectCallback += (id) =>
         {
