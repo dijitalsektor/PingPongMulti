@@ -21,11 +21,8 @@ public class UIManager : Singleton<UIManager>
     private TextMeshProUGUI playersInGameText;
 
     [SerializeField]
-    private TMP_InputField joinCodeInput;
+    private TextMeshProUGUI scoreText;
 
-
-    [SerializeField]
-    private TMP_InputField nicknameInput;
 
     private bool hasServerStarted;
     private void Awake()
@@ -38,9 +35,10 @@ public class UIManager : Singleton<UIManager>
         playersInGameText.text = $"Players in game: {PlayersManager.Instance.PlayerCount.ToString()}";
     }
 
-    public string ReadNickName()
+
+    public void UpdateScoreText(string score)
     {
-        return nicknameInput.text;
+        scoreText.text = score;
     }
 
     private void Start()

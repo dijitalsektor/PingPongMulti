@@ -28,7 +28,7 @@ public class BallMovement : NetworkBehaviour
 
     private Vector2 GenerateRandomInitialDirection()
     {
-        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        return new Vector2(Random.Range(0.8f, 1f), Random.Range(0.8f, 1f));
     }
     private void Update()
     {
