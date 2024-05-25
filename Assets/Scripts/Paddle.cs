@@ -16,7 +16,6 @@ public class Paddle : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log("Rigidbody olustu");
     }
     // Update is called once per frame
     void Update()
@@ -25,34 +24,15 @@ public class Paddle : NetworkBehaviour
         {
             GetClientInput();
         }
-        // Yön tuþlarý veya diðer giriþlerle raketin hareketini kontrol et
-
-        //float moveAmount = moveInput * speed * Time.deltaTime;
-
-        //// Raketin yeni pozisyonunu hesapla
-        //float newYPosition = transform.position.y + moveAmount;
-
-        //// Yeni pozisyonu sýnýrla
-        //newYPosition = Mathf.Clamp(newYPosition, minY, maxY);
-
-        //// Raketin konumunu güncelle
-        //transform.position = new Vector2(transform.position.x, newYPosition);
     }
 
     private void FixedUpdate()
     {
         if (IsServer)
         {
-
-
-            // Rigidbody üzerinde yalnızca y ekseni hareketini uygula
-
             Vector2 movement = new Vector2(0, YAxisInputValue.Value * speed * Time.fixedDeltaTime);
             rb.MovePosition(rb.position + movement);
 
-            //// Yeni pozisyonu sınırla
-            //Vector2 clampedPosition = new Vector2(rb.position.x, Mathf.Clamp(rb.position.y, minY, maxY));
-            //rb.MovePosition(clampedPosition);
         }
     }
 
